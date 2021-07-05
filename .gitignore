@@ -1,0 +1,17 @@
+venv/
+.idea
+.DS_Store
+mainsite/booking/sendEmail.py
+mainsite/orchidee/
+mainsite/recognition/
+mainsite/.env
+mainsite/booking/__pycache__/
+mainsite/booking/migrations/__pycache__/
+mainsite/cinetic/__pycache__/
+mainsite/cinetic/migrations/__pycache__/
+mainsite/mainsite/__pycache__/
+mainsite/mainsite/settings/__pycache__/
+mainsite/booking/templates/booking/old_base.html
+mainsite/cinetic/static/cinetic/assets/css/styles_old.css
+mainsite/cinetic/templates/base_old.html
+mainsite/mainsite/settings/production.py
