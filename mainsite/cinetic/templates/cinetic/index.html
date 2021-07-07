@@ -1,9 +1,7 @@
 {% extends "base.html" %}
-
 {% load static %}
-
+{% load i18n %}
 {% block section %}
-
 
   <section id="intro">
     <div class="intro-container">
@@ -48,13 +46,12 @@
             </div>
             <div class="carousel-container">
               <div class="carousel-content">
-
-                <h2>Bienvenue sur 6netic.eu</h2>
-                <p>Ce site personnel a pour but de m'offir une visibilité sur le Web.<br />
-                Passioné par le développement, j'y présente des projets réalisés
-                  avec Python.<br />
-                Son contenu n'est pas très fourni mais il a pour vocation de grossir
-                au fur et à mesure des projets à venir...</p>
+                <h2>{% translate "Bienvenue sur 6netic.eu" %}</h2>
+                <p>
+                  {% translate "Ce site personnel a pour but de m'offir une visibilité sur le Web." %}<br />
+                  {% translate "Passioné par le développement, j'y présente des projets réalisés en Python." %}<br />
+                  {% translate "Son contenu n'est pas très fourni mais il a pour vocation de grossir avec le temps..." %}
+                </p>
                 <!--<a href="#featured-services" class="btn-get-started scrollto">Get Started</a>-->
               </div>
             </div>

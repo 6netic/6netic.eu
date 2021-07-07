@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 
 <!DOCTYPE html>
 <html>
@@ -51,20 +53,20 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="nav-menu">
    {% if home %}
-          <li class="menu-active"><a href="{% url 'cinetic:homepage' %}">Home</a></li>
+          <li class="menu-active"><a href="{% url 'cinetic:homepage' %}">{% translate "Accueil" %}</a></li>
    {% else %}
-          <li><a href="{% url 'cinetic:homepage' %}">Home</a></li>
+          <li><a href="{% url 'cinetic:homepage' %}">{% translate "Accueil" %}</a></li>
    {% endif %}
 
   {% if projets %}
-          <li class="menu-active"><a href="{% url 'cinetic:projets' %}">Projets</a></li>
+          <li class="menu-active"><a href="{% url 'cinetic:projets' %}">{% translate "Projets" %}</a></li>
   {% else %}
-          <li><a href="{% url 'cinetic:projets' %}">Projets</a></li>
+          <li><a href="{% url 'cinetic:projets' %}">{% translate "Projets" %}</a></li>
   {% endif %}
   {% if contact %}
-          <li class="menu-active"><a href="{% url 'cinetic:contact' %}">Contact</a></li>
+          <li class="menu-active"><a href="{% url 'cinetic:contact' %}">{% translate "Contact" %}</a></li>
   {% else %}
-          <li><a href="{% url 'cinetic:contact' %}">Contact</a></li>
+          <li><a href="{% url 'cinetic:contact' %}">{% translate "Contact" %}</a></li>
   {% endif %}
         </ul>
         
