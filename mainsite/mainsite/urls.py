@@ -24,5 +24,5 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     path('cinetic/', include('cinetic.urls')),
     path('booking/', include('booking.urls')),
-    path('recognition/', include('recognition.urls')),
+    #path('recognition/', include('recognition.urls')),
 ]
