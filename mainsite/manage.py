@@ -9,8 +9,8 @@ def main():
     """Run administrative tasks."""
 
     # In local, This is there I set the environment !
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainsite.settings.development')
-    #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainsite.settings.production')
+    #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainsite.settings.development')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainsite.settings.production')
 
 
     if os.getenv('DJANGO_SETTINGS_MODULE'):
