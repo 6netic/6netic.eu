@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cinetic',
     'booking',
+    'purbeurre',
     #'recognition',
     #'orchidee',
 ]
@@ -54,6 +55,10 @@ WSGI_APPLICATION = 'mainsite.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = 'purbeurre.PbUser'
+
+LOGIN_URL = '/purbeurre/connect'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

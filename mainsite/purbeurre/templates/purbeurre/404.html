@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>{% block title %}Pur Beurre{% endblock %}</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
+        <!-- Custom CSS -->
+        <link href="{% static 'purbeurre/css/styles.css' %}" rel="stylesheet" />
+    </head>
+
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top py-3" id="mainNav">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'purbeurre:homepage' %}">
+                <img id="logo" src="{% static 'purbeurre/assets/img/logo.png' %}" alt='Pur Beurre Logo'>
+                <span>Pur Beurre</span>
+            </a>
+{% block nav %}
+
+    {% block right %}
+        <div class="right">
+            <form action="{% url 'purbeurre:search' %}" method="get" accept-charset="utf-8">
+                <input type="text" class="form-control" placeholder="Chercher" name="search_word">
+            </form>
+        </div>
+    {% endblock %}
+
+    {% block sidebar %}
+        <div id="sidebar">
+            <ul class="navbar-nav ml-auto my-2 my-lg-0">
+            {% if user.is_authenticated %}
+                <a href="{% url 'purbeurre:account' %}">
+                <li class="nav-item">
+                    <img class="headicons" src="{% static 'purbeurre/assets/img/account_icon.png' %}" alt='My Account'></li>
+                </a>
+
+                <a href="{% url 'purbeurre:showfavourites' %}">
+                <li class="nav-item"><img class="headicons" src="{% static 'purbeurre/assets/img/foods_icon.png' %}" alt='My Account'>
+                </li></a>
+                <a href="{% url 'purbeurre:disconnect' %}">
+                <li class="nav-item"><img class="headicons" src="{% static 'purbeurre/assets/img/disconnect_icon.png' %}" alt='My Account'></li></a>
+            {% else %}
+                <a href="{% url 'purbeurre:account' %}">
+                <li class="nav-item">
+                    <img class="headicons" src="{% static 'purbeurre/assets/img/account_icon.png' %}" alt='My Account'></li>
+                </a>
+
+            {% endif %}
+            </ul>
+        </div>
+    {% endblock %}
+
+{% endblock %}
+        </div>
+        </nav>
+
+        <section id="content">
+
+{% block content %}
+    <section class="blackband">
+    </section>
+
+    <section class="bg-result">
+        <div class="container">
+            <h4 class="text-center mt-0">Aucune réponse trouvée. Merci de réessayer.</h4><br />
+        </div>
+    </section>
+{% endblock %}
+
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container">
+                <table align="center">
+                    <tr>
+                        <td><a href="{% url 'purbeurre:legal' %}" style="color: black;">Mentions légales</a></td>
+                        <td style="padding-left: 3rem; padding-right: 3rem;"></td>
+                        <td>Copyright © 2020 - Eric Bresler</td>
+                    </tr>
+                </table>
+
+            </div>
+        </footer>
+
+        <!-- Custom JS script -->
+        <script src="{% static 'purbeurre/assets/js/popup_saving.js' %}"></script>
+
+    </body>
+</html>
+
+

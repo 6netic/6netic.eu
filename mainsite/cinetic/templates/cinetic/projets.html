@@ -45,7 +45,7 @@
             <div class="portfolio-wrap">
               <figure>
                 <img src="{% static 'cinetic/assets/img/portfolio/purbeurre.jpg' %}" class="img-fluid" alt="">
-                <a href="../food/" target="_blank" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Aller sur le Site">
+                <a href="{% url 'purbeurre:index' %}" target="_blank" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Aller sur le Site">
                   <i class="ion ion-eye"></i></a>
               </figure>
 
@@ -57,7 +57,7 @@
                    {% translate "La base de données alimentaire provient d'OpenFoodFacts via son API." %}<br />
                    {% translate "Vous pouvez créer un compte et sauvegarder vos aliments préférés." %}<br /><br />
                    {% translate "Le site est disponible à cette adresse :" %}<br />
-                   <a href="../food/" target="_blank">Site PurBeurre</a><br /><br />
+                   <a href="{% url 'purbeurre:index' %}" target="_blank">Site PurBeurre</a><br /><br />
                    {% translate "Le code du depot est disponible ici :" %}<br />
                    <a href="https://github.com/6netic/dixpb" target="_blank">https://github.com/6netic/dixpb</a>
                 </p>
