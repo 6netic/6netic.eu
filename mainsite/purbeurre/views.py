@@ -12,6 +12,7 @@ from django.shortcuts import redirect
 from django.db import IntegrityError
 
 
+
 def index(request):
     """ Homepage for purbeurre application """
 
@@ -50,7 +51,9 @@ def search(request):
                 favourite_list.append(product)
 
     except AttributeError:
-        raise Http404("Il n'y a pas de réponse à votre recherche. Désolé.")
+        #raise Http404("Il n'y a pas de réponse à votre recherche. Désolé.")
+        #render(request, 'purbeurre/404.html')
+        pass
 
     return render(request, 'purbeurre/result.html', locals())
 
