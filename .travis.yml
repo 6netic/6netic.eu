@@ -14,7 +14,7 @@ services:
 
 script:
   - python manage.py test purbeurre.tests.test_models -v 2
-
+  - python manage.py test purbeurre.tests.test_views -v 2
 
 branches:
   only:
