@@ -1,3 +1,4 @@
+# Type ./manage.py test purbeurre.tests.test_views -v 2
 from django.test import TestCase
 from ..models import Category, Product, Favourite, PbUser
 

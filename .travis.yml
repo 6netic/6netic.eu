@@ -1,0 +1,21 @@
+language: python
+
+python:
+  - "3.8"
+
+before_script:
+  - cd mainsite/
+  - pip install -r requirements.txt
+
+env: DJANGO_SETTINGS_MODULE="purbeurre.settings.travis"
+
+services:
+  - postgresql
+
+script:
+  - python manage.py test purbeurre.tests.test_views -v 2
+  - python manage.py test purbeurre.tests.test_models -v 2
+
+branches:
+  only:
+    - tempo
