@@ -16,7 +16,8 @@ class PurbeurreViewPageTestCase(TestCase):
     # Giving rights to user for all databases
     databases = '__all__'
 
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         """ Initiates elements """
 
         # Create and Populate Category table
