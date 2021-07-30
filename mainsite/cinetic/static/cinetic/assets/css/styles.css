@@ -1514,6 +1514,120 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /*--------------------------------------------------------------
+# Popups on Project page
+--------------------------------------------------------------*/
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: #009879;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  /* width: 400px; */
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -190px;
+  width: 350px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+/*--------------------------------------------------------------
+# Styled Table on Project page
+--------------------------------------------------------------*/
+.styled-table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    /* margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 60%;
+     */
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th, .styled-table td {
+    /* padding: 12px 15px; */
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.styled-table tbody tr td a:link, .styled-table tbody tr td a:visited,
+.styled-table tbody tr td a:hover, .styled-table tbody tr td a:active{
+    text-decoration: none;
+    color: #009879;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #F5F5DC;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
+
+
+/*--------------------------------------------------------------
 # Responsive Media Queries
 --------------------------------------------------------------*/
 
@@ -1603,4 +1717,38 @@ body.mobile-nav-active #mobile-nav-toggle {
     text-transform: uppercase;
     outline: none;
   }
+
+
+  .styled-table, .styled-table thead, .styled-table tbody, .styled-table th, .styled-table td, .styled-table tr {
+		display: block;
+  }
+  .styled-table thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+  .styled-table tr { border: 1px solid #ccc; }
+  .styled-table td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+  .styled-table td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+  }
+  .styled-table td:nth-of-type(1):before { content: "Nom"; }
+  .styled-table td:nth-of-type(2):before { content: "Description"; }
+  .styled-table td:nth-of-type(3):before { content: "Type"; }
+  .styled-table td:nth-of-type(4):before { content: "Github"; }
+  .styled-table td:nth-of-type(5):before { content: "Site Web"; }
+  .styled-table td:nth-of-type(6):before { content: "Historique"; }
 }
