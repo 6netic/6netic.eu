@@ -82,7 +82,8 @@
                 <td>LeBanlieuZar</td>
                 <td><div class="popup" onclick="showdescLeBanlieuzar()">{% translate "Lire" %}<span class="popuptext" id="popup5">
                   {% translate "Il s'agit en fait d'un hack du site LeParisien.fr qui permet d'afficher tous les articles." %}<br />
-                  {% translate "L'unique intérêt est d'utiliser la librairie BeautifulSoup pour cet usage." %}</span>
+                  {% translate "L'unique intérêt est d'utiliser la librairie BeautifulSoup pour cet usage." %}<br />
+                  {% translate "Le site a depuis mis en place une sécurité digne de ce nom : seuls les articles non protégés sont donc visibles." %}</span>
                   </div>
                 </td>
                 <td>Flask</td>
@@ -117,7 +118,19 @@
                 <td> - </td>
                 <td> - </td>
               </tr>
-
+              <tr>
+                <td>L'Orchidée</td>
+                <td><div class="popup" onclick="showdescOrchidee()">{% translate "Lire" %}<span class="popuptext" id="popup8">
+                  {% translate "Appli web (dans sa v1) permettant d'importer un planning généré par une appli médicale tierce au format PDF et l'affiche dans un tableau tout en permettant d'ajouter un commentaire sur chacune des lignes." %}<br />
+                  {% translate "L'intérêt est de pouvoir le consulter sur smartphone (au lieu de l'imprimer) et ainsi faciliter les tournées quotidiennes des infirmières." %}<br />
+                  {% translate "La BDD utilisée est en PostgreSQL." %}</span>
+                  </div>
+                </td>
+                <td>Django</td>
+                <td><a href="https://github.com/6netic/orchidee" target="_blank">Dépôt</a></td>
+                <td><a href="{% url 'lorchidee:index' %}" target="_blank">Site</a></td>
+                <td> - </td>
+              </tr>
             </tbody>
           </table>
 
@@ -153,6 +166,10 @@
   }
   function showdescScrape4Fun() {
     var popup = document.getElementById("popup7");
+    popup.classList.toggle("show");
+  }
+  function showdescOrchidee() {
+    var popup = document.getElementById("popup8");
     popup.classList.toggle("show");
   }
 

@@ -1,0 +1,68 @@
+{% extends "lorchidee/base.html" %}
+
+{% load static %}
+
+{% block wrapper %}
+
+  <section class="page-section" id="services">
+    <div class="container">
+      <div class="text-center">
+        <!--<h2 class="section-heading text-uppercase">Services</h2>-->
+        <br /><br />
+        <h3 class="section-subheading text-muted">Visualisation du Planning</h3>
+        <br /><br /><br /><br />
+   {% if data %}
+     <form action="{% url 'lorchidee:viewPlanning' %}" method="post">
+         {% csrf_token %}
+        <p><label for="laDate">Entrez la date de la tournée : </label>
+        <input type="date" name="laDate" id="laDate"></p>
+        <p><input type="submit" value="Envoyer"></p>
+     </form>
+   {% endif %}
+   {% if daysWork %}
+      <table class="styled-table">
+                <thead>
+                  <tr>
+                    <th>Heure</th>
+                    <th>Patient</th>
+                    <th>Adresse, Tél</th>
+                    <th>Cotation, détail séance</th>
+                    <th>Dû assuré</th>
+                    <th>Honoraire</th>
+                    <th>Fin de traitement</th>
+                    <th>Commentaires</th>
+                    <th></th>
+                 </tr>
+               </thead>
+               <tbody>
+           {% for one in daysWork %}
+                  <tr>
+                    <td>{{ one.heure }}</td>
+                    <td>{{ one.patient }}</td>
+                    <td>{{ one.addrTel }}</td>
+                    <td>{{ one.cotation }}</td>
+                    <td>{{ one.assure }}</td>
+                    <td>{{ one.honoraire }}</td>
+                    <td>{{ one.finTraitement }}</td>
+                    <td id="noteclass{{ forloop.counter }}">{{ one.commentaires }}</td>
+                    <td id="bout{{ forloop.counter }}">
+                      <button type="button" class="btn btn-outline-success"
+                        onclick="zone('noteclass{{ forloop.counter }}','bout{{ forloop.counter }}', '{{ one.id }}');">
+                          Modifier
+                      </button>
+                    </td>
+                  </tr>
+           {% endfor %}
+              </tbody>
+     </table>
+   {% endif %}
+            </div>
+
+        </div>
+    </section>
+
+
+<script type="text/javascript" src="{% static 'lorchidee/js/modifplanning.js' %}"></script>
+
+{% endblock %}
+

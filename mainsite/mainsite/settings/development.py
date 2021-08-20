@@ -24,6 +24,14 @@ DATABASES = {
         'PASSWORD': 'mypassword',
         'HOST': 'localhost',
         'PORT': '5432',
+    },
+    'lorchidee': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'lorchidee_database',
+        'USER': 'myuser',
+        'PASSWORD': 'mypassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

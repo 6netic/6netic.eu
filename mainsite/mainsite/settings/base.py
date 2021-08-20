@@ -19,8 +19,9 @@ INSTALLED_APPS = [
     'cinetic',
     'booking',
     'purbeurre',
+    'lorchidee',
     #'recognition',
-    #'orchidee',
+
 ]
 
 MIDDLEWARE = [
@@ -94,4 +95,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 #STATICFILES_DIRS = (
 #    os.path.join(BASE_DIR, "static"),
 #)
-
