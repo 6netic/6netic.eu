@@ -16,3 +16,4 @@ mainsite/cinetic/static/cinetic/assets/css/styles_old.css
 mainsite/cinetic/templates/base_old.html
 mainsite/mainsite/settings/production.py
 mainsite/cinetic/templates/cinetic/services.html
+mainsite/.pytest_cache/

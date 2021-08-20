@@ -2,19 +2,19 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-import dotenv
+from dotenv import load_dotenv
 
 
 def main():
     """Run administrative tasks."""
 
-    # In local, This is there I set the environment !
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainsite.settings.development')
-    #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainsite.settings.production')
+    load_dotenv(os.path.join('.env'))
 
-
-    if os.getenv('DJANGO_SETTINGS_MODULE'):
-        os.environ['DJANGO_SETTINGS_MODULE'] = os.getenv('DJANGO_SETTINGS_MODULE')
+    # This is where to set the environment (dev or prod)
+    if os.getenv("ENV") == "PRODUCTION":
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainsite.settings.production')
+    else:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainsite.settings.development')
 
     try:
         from django.core.management import execute_from_command_line
@@ -30,4 +30,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-dotenv.load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
+
