@@ -10,7 +10,7 @@ def main():
 
     load_dotenv(os.path.join('.env'))
 
-    # This is where to set the environment (dev or prod)
+    # This is where to set the environment (dev or prod) - Actually it's in wsgi.py
     if os.getenv("ENV") == "PRODUCTION":
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mainsite.settings.production')
     else:

@@ -1,16 +1,11 @@
 from django.http import HttpResponse
-from django.http import Http404
-from datetime import datetime
 from .models import Category, Product, Favourite, PbUserManager, PbUser
 from .forms import MemberForm, ConnectionForm, ChangePasswordForm
 from django.contrib.auth.decorators import login_required
-import logging
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from django.urls import reverse
 from django.shortcuts import redirect
 from django.db import IntegrityError
-
 
 
 def index(request):
@@ -40,7 +35,7 @@ def search(request):
                         filter(nutrition_grade__lte=search_prd_nut). \
                         exclude(pk=search_prd_id)[:6]
 
-        # Retrieve user email
+        # Retrieves user email
         if request.user.is_authenticated:
             email = request.user.email
             favourites = Favourite.objects.using('purbeurre').all().filter(email_user=email)
@@ -51,9 +46,7 @@ def search(request):
                 favourite_list.append(product)
 
     except AttributeError:
-        #raise Http404("Il n'y a pas de réponse à votre recherche. Désolé.")
-        #render(request, 'purbeurre/404.html')
-        pass
+        render(request, 'purbeurre/404.html')
 
     return render(request, 'purbeurre/result.html', locals())
 
@@ -85,7 +78,6 @@ def saveprd(request):
     email = request.user.email
 
     try:
-        # A refaire, cette méthode ne fonctionne pas !!!
         new_entry = Favourite.objects.using('purbeurre').create(
             former_barcode=former_barcode,
             favourite_barcode=new_barcode,

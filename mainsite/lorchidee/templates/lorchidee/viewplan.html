@@ -55,11 +55,13 @@
            {% endfor %}
               </tbody>
      </table>
-   {% endif %}
-            </div>
 
-        </div>
-    </section>
+   {% elif daysEmpty %}
+      <div style="color:blue;">Il n'y a aucun planning enregistré pour cette date.</div>
+   {% endif %}
+      </div>
+    </div>
+  </section>
 
 
 <script type="text/javascript" src="{% static 'lorchidee/js/modifplanning.js' %}"></script>

@@ -31,6 +31,8 @@
 
 {% if insertOK %}
   <script src="{% static 'lorchidee/js/insertPop.js' %}"></script>
+{% elif insertNOK %}
+  <script src="{% static 'lorchidee/js/insertPopErr.js' %}"></script>
 {% endif %}
 
 {% endblock %}
