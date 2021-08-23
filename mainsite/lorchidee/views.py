@@ -32,7 +32,7 @@ def insertPlanning(request):
                 col = []
                 for column in line:
                     col.append(column)
-                new_entry = models.TimePlan.objects.create(
+                new_entry = models.TimePlan.objects.using('lorchidee').create(
                     jour=myDate,
                     heure=col[0],
                     patient=col[1],
@@ -59,7 +59,7 @@ def viewPlanning(request):
     if request.method == 'POST':
         try:
             day = request.POST.get("laDate")
-            daysWork = models.TimePlan.objects.filter(jour=day).order_by('id')
+            daysWork = models.TimePlan.objects.using('lorchidee').filter(jour=day).order_by('id')
             if daysWork:
                 return render(request, "lorchidee/viewplan.html", {'daysWork': daysWork})
             else:
@@ -77,7 +77,7 @@ def saveComment(request):
         try:
             note = request.POST.get('note')
             number = request.POST.get('number')
-            entry = models.TimePlan.objects.get(pk=number)
+            entry = models.TimePlan.objects.using('lorchidee').get(pk=number)
             entry.commentaires = note
             entry.save()
         except:
