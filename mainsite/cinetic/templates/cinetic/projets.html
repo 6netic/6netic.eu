@@ -30,7 +30,7 @@
             <tbody>
               <tr>
                 <td>GrandPy</td>
-                <td><div class="popup" onclick="showdescGrandPy()">{% translate "Lire" %}<span class="popuptext" id="popup1">
+                <td><div class="popup" onclick="showDescription('popup1')">{% translate "Lire" %}<span class="popuptext" id="popup1">
                   {% translate "Il s'agit d'un bot hébergé sur Heroku qui vous affiche la carte du lieu recherché ainsi qu'un extrait de l'histoire de ce lieu." %}<br />
                   {% translate "Les requêtes utilisent Ajax pour communiquer avec le serveur." %}</span>
                   </div>
@@ -42,7 +42,7 @@
               </tr>
               <tr>
                 <td>PurBeurre</td>
-                <td><div class="popup" onclick="showdescPurBeurre()">{% translate "Lire" %}<span class="popuptext" id="popup2">
+                <td><div class="popup" onclick="showDescription('popup2')">{% translate "Lire" %}<span class="popuptext" id="popup2">
                   {% translate "Site qui propose des produits plus sains que celui que vous entrez." %}<br />
                   {% translate "La base de données alimentaire provient d'OpenFoodFacts via son API." %}<br />
                   {% translate "Vous pouvez créer un compte et sauvegarder vos aliments préférés." %}</span>
@@ -55,7 +55,7 @@
               </tr>
               <tr>
                 <td>Shooting Target</td>
-                <td><div class="popup" onclick="showdescShootingTarget()">{% translate "Lire" %}<span class="popuptext" id="popup3">
+                <td><div class="popup" onclick="showDescription('popup3')">{% translate "Lire" %}<span class="popuptext" id="popup3">
                   {% translate "Il s'agit d'une appli hébergée sur Heroku qui propose d'afficher le résultat du nombre de points sur une cible de 10 mètres." %}<br />
                   {% translate "La librairie Opencv est utilisée." %}<br />
                   {% translate "Pour le moment, l'appli est sommaire : ne sont reconnus que 10 trous qui ne se touchent pas." %}<br />
@@ -69,7 +69,7 @@
               </tr>
               <tr>
                 <td>Réservation Transport</td>
-                <td><div class="popup" onclick="showdescLimoSquare()">{% translate "Lire" %}<span class="popuptext" id="popup4">
+                <td><div class="popup" onclick="showDescription('popup4')">{% translate "Lire" %}<span class="popuptext" id="popup4">
                   {% translate "Il s'agit d'une maquette fonctionnelle pour une entreprise qui souhaitait permettre à ses clients d'enregistrer des réservations afin d'être transportés d'un lieu à un autre." %}</span>
                   </div>
                 </td>
@@ -80,7 +80,7 @@
               </tr>
               <tr>
                 <td>LeBanlieuZar</td>
-                <td><div class="popup" onclick="showdescLeBanlieuzar()">{% translate "Lire" %}<span class="popuptext" id="popup5">
+                <td><div class="popup" onclick="showDescription('popup5')">{% translate "Lire" %}<span class="popuptext" id="popup5">
                   {% translate "Il s'agit en fait d'un hack du site LeParisien.fr qui permet d'afficher tous les articles." %}<br />
                   {% translate "L'unique intérêt est d'utiliser la librairie BeautifulSoup pour cet usage." %}<br />
                   {% translate "Le site a depuis mis en place une sécurité digne de ce nom : seuls les articles non protégés sont donc visibles." %}</span>
@@ -93,7 +93,7 @@
               </tr>
               <tr>
                 <td>MG Labyrinth</td>
-                <td><div class="popup" onclick="showdescMGLabyrinth()">{% translate "Lire" %}<span class="popuptext" id="popup6">
+                <td><div class="popup" onclick="showDescription('popup6')">{% translate "Lire" %}<span class="popuptext" id="popup6">
                   {% translate "Application Python de jeu avec Pygame." %}<br />
                   {% translate "Il s'agit d'un jeu de labyrinthe en Python qui utilise la librairie Pygame." %}<br />
                   {% translate "Le personnage est Mac Gyver et le but est de l'aider à trouver la sortie en ayant préalablement ramassé 3 objets." %}<br />
@@ -108,7 +108,7 @@
               </tr>
               <tr>
                 <td>Scrape4Fun</td>
-                <td><div class="popup" onclick="showdescScrape4Fun()">{% translate "Lire" %}<span class="popuptext" id="popup7">
+                <td><div class="popup" onclick="showDescription('popup7')">{% translate "Lire" %}<span class="popuptext" id="popup7">
                   {% translate "Application Python permettant de récupérer tous les livres du site books.toscrape.com et les enregistre dans un fichier .csv" %}<br />
                   {% translate "Sur ce projet, c'est la bibliothèque BeautifulSoup qui a été utilisée." %}</span>
                   </div>
@@ -120,7 +120,7 @@
               </tr>
               <tr>
                 <td>L'Orchidée</td>
-                <td><div class="popup" onclick="showdescOrchidee()">{% translate "Lire" %}<span class="popuptext" id="popup8">
+                <td><div class="popup" onclick="showDescription('popup8')">{% translate "Lire" %}<span class="popuptext" id="popup8">
                   {% translate "Appli web (dans sa v1) permettant d'importer un planning généré par une appli médicale tierce au format PDF et l'affiche dans un tableau tout en permettant d'ajouter un commentaire sur chacune des lignes." %}<br />
                   {% translate "L'intérêt est de pouvoir le consulter sur smartphone (au lieu de l'imprimer) et ainsi faciliter les tournées quotidiennes des infirmières." %}<br />
                   {% translate "La BDD utilisée est en PostgreSQL." %}</span>
@@ -129,6 +129,19 @@
                 <td>Django</td>
                 <td><a href="https://github.com/6netic/orchidee" target="_blank">Dépôt</a></td>
                 <td><a href="{% url 'lorchidee:index' %}" target="_blank">Site</a></td>
+                <td> - </td>
+              </tr>
+              <tr>
+                <td>ATP Men Ranking</td>
+                <td><div class="popup" onclick="showDescription('popup9')">{% translate "Lire" %}<span class="popuptext" id="popup9">
+                  {% translate "Appli Python permettant de récupérer le classement et matchs des 100 premiers joueurs de tennis de l'ATP." %}<br />
+                  {% translate "C'est la partie 1 d'un projet de Machine Learning permettant de déterminer le vainqueur d'un match." %}<br />
+                  {% translate "Son utilité est d'aider à la décision d'un pari sur un joueur." %}</span>
+                  </div>
+                </td>
+                <td>Appli</td>
+                <td><a href="https://github.com/6netic/atp_men_players" target="_blank">Dépôt</a></td>
+                <td> - </td>
                 <td> - </td>
               </tr>
             </tbody>
